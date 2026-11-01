@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CarePlus Pharmacy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="logo">✚</span><div><b>CarePlus</b><small>Pharmacy</small></div></div>
+    <div class="top-actions" id="topActions" style="display:none">
+      <span class="hello" id="helloUser"></span>
+      <button class="btn light small" onclick="logout()">Logout</button>
+    </div>
+  </header>
+
+  <section id="loginScreen" class="login-screen">
+    <div class="capsule c1"></div><div class="capsule c2"></div><div class="capsule c3"></div><div class="capsule c4"></div>
+    <div class="login-wrap">
+      <div class="login-card">
+        <div class="login-logo">✚</div>
+        <h1 id="authTitle">Welcome to CarePlus</h1>
+        <p class="muted" id="authSubtitle">Login to continue</p>
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="loginTab" onclick="showAuth('login')">Login</button>
+          <button class="auth-tab" id="registerTab" onclick="showAuth('register')">Create Account</button>
+        </div>
+        <form id="authForm" onsubmit="handleAuth(event)">
+          <div class="field" id="nameField" style="display:none">
+            <label>Full name</label>
+            <div class="input-icon"><span>👤</span><input id="authName" placeholder="Enter your name"></div>
+          </div>
+          <div class="field">
+            <label>Email address</label>
+            <div class="input-icon"><span>✉</span><input id="authEmail" type="email" required placeholder="name@example.com"></div>
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <div class="password-wrap">
+              <div class="input-icon"><span>🔒</span><input id="authPassword" type="password" required placeholder="Enter password" minlength="4"></div>
+              <button type="button" class="show-password" onclick="togglePassword()">Show</button>
+            </div>
+          </div>
+          <div class="field" id="accountTypeField">
+            <label>Login as</label>
+            <select id="authRole"><option value="customer">Customer</option><option value="admin">Admin</option></select>
+          </div>
+          <button class="btn green auth-submit" id="authSubmit">Login</button>
+        </form>
+        <div id="authMessage" class="auth-message"></div>
+      </div>
+      <div class="login-perks">
+        <div><b>💊</b><span>Genuine medicines</span></div>
+        <div><b>📄</b><span>Easy prescription upload</span></div>
+        <div><b>🚚</b><span>Quick order tracking</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout" id="appLayout" style="display:none">
+    <aside class="sidebar">
+      <div class="user-card"><div class="avatar" id="avatar">C</div><div><b id="roleName">Customer</b><small id="roleHint">Welcome back!</small></div></div>
+      <nav id="navigation"></nav>
+    </aside>
+    <main class="main">
+      <div id="toast" class="toast"></div>
+      <section id="page"></section>
+      <footer>
+        <b>CarePlus Pharmacy</b>
+        <div class="team-footer">
+          <h3>Project Team Members</h3>
+          <span>Gaurav Singh Bajetha <b>(12613038)</b></span>
+          <span>Aditya Kumar <b>(12613103)</b></span>
+          <span>Adarsh Kumar Mishra <b>(12613293)</b></span>
+        </div>
+      </footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
